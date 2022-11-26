@@ -57,10 +57,10 @@ function draw(){
       count = (count*1.0001) % cycle;
       }
   }
-  ellipse(width / 2, height / 2,100-count%cycle/1.3)
-    fill(255,0,0)
-    if(keyIsDown(" ".charCodeAt(0))){
-    count = (count*1.0001 + 1) % cycle;
-    }
+  //ellipse(width / 2, height / 2,100-count%cycle/1.3)
+    //fill(255,0,0)
+    //if(keyIsDown(" ".charCodeAt(0))){
+    //count = (count*1.0001 + 1) % cycle;
+    //}
 }
 
