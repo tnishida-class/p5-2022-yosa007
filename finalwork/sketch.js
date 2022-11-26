@@ -1,54 +1,66 @@
 // 最終課題を制作しよう
-let count
-
 function setup(){
   createCanvas(200, 200);
-  background(160, 192, 255);
+  fill(255,0,0)
   count = 0;
-  cycle = 50;
-  console.log(count);
-  for(let i = 0; i < 30; i++){
-    if(i<15){
-      stroke(180,0,180);}
-    else{
-      stroke(255,0,255)}
-    line(count%cycle,5*i+50,200-5*i,0);
-  }
-  for(let i = 0; i < 30; i++){
-    if(i<15){
-      stroke(180,0,180);}
-    else{
-      stroke(255,0,255)}
-    line(5*i,200,200,150-5*i);
-  }
-  //arrowSign(20,40,180,20,40,90,100,110,160,180)
-  
+  cycle = 100;
+  square(50,100,100,50,150,100,100,150)
 }
 
-//for(let i = 0; i < 10; i++){
-  //if(i<5){
-    //stroke(0,0,255);}
-  //else{
-    //stroke(255,0,0)}
-  //line(0,5*i+130,180-5*i,0);
-//}
-//function arrowSign (x1,x2,x3,y1,y2,y3,y4,y5,y6,y7){
-  //line(x1,y3,x3,y1);
-  //line(x3,y1,x3,y2);
-  //line(x3,y2,x2,y4);
-  //line(x2,y4,x3,y6);
-  //line(x3,y6,x3,y7);
-  //line(x3,y7,x1,y5);
-  //line(x1,y5,x1,y3);
-//}  
-
-
-
-//function draw(){
-  //background(160, 192, 255);
-//}
-
-//function windowResized(){
-  //resizeCanvas(200, 200);
-//}
+function draw(){
+  background(200,150,200);
+  count = (count + 0.7) % cycle;
+  console.log(count);
+  square(50,100,100,50,150,100,100,150)
+  function square (x1,y1,x2,y2,x3,y3,x4,y4){
+    line(x1,y1,x2,y2)
+    line(x2,y2,x3,y3)
+    line(x3,y3,x4,y4)
+    line(x4,y4,x1,y1)
+  }
+  for(let i = 0; i < 40; i++){
+    if(i<20){
+      stroke(255,0,0);}
+    else{
+      stroke(0,0,255)}
+    line(count%cycle,5*i+50-count%cycle,200-5*i-count%cycle,count%cycle);
+    if(keyIsDown(" ".charCodeAt(0))){
+      count = (count*1.0001) % cycle;
+      }
+  }
+  for(let i = 0; i < 40; i++){
+    if(i<20){
+      stroke(0,0,255);}
+    else{
+      stroke(255,0,0)}
+    line(5*i+count%cycle,200-count%cycle,200-count%cycle,150-5*i+count%cycle);
+    if(keyIsDown(" ".charCodeAt(0))){
+      count = (count*1.0001) % cycle;
+      }
+  }
+  for(let i = 0; i < 40; i++){
+    if(i<20){
+      stroke(0,0,255);}
+    else{
+      stroke(255,0,0)}
+    line(5*i+count%cycle,count%cycle,200-count%cycle,50+5*i-count%cycle);
+    if(keyIsDown(" ".charCodeAt(0))){
+      count = (count*1.0001) % cycle;
+    }
+  }
+  for(let i = 0; i < 40; i++){
+    if(i<20){
+      stroke(255,0,0);}
+    else{
+      stroke(0,0,255)}
+    line(count%cycle,5*i+count%cycle,50+5*i-count%cycle,200-count%cycle);
+    if(keyIsDown(" ".charCodeAt(0))){
+      count = (count*1.0001) % cycle;
+      }
+  }
+  ellipse(width / 2, height / 2,100-count%cycle/1.3);
+    if(keyIsDown(" ".charCodeAt(0))){
+    count = (count*1.0001 + 1) % cycle;
+    }
+}
 
